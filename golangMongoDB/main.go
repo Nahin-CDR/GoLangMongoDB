@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/Nahin-CDR/golangMongoDB/controllers"
@@ -23,12 +24,13 @@ func main() {
 
 func getSession() *mgo.Session {
 
-	s, err := mgo.Dial("mongodb://localhost:27017")
+	s, err := mgo.Dial("mongodb://user:pass@localhost:27021/")
 
 	if err != nil {
 		println("Error Occured")
 		panic(err)
 	}
+	fmt.Println("DB connected !!! ")
 
 	return s
 }
